@@ -37,3 +37,13 @@ create_data(drone_folder, 'drone')
 
 #PT - separando os dados entre treino e avaliação EN - Separating data between train and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+
+#PT - criando os placeholders EN - Creating placeholders
+x_place = tf.placeholder(tf.float32, shape = [None, 200, 200, 3])
+y_place = tf.placeholder(tf.int32, shape = [None,])
+
+#convertendo para uns e zeros
+one_hot = tf.one_hot(y_place, 2)
+
+#PT - transformando os arrays em tensors En - converting arrays to tensors
+input_layer = tf.reshape(x_place, shape = [-1, 200, 200, 3])
