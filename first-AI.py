@@ -60,3 +60,7 @@ logits = tf.layers.dense(dropout, units=2)
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot))
 optimiser = tf.train.AdamOptimizer()
 training_op = optimiser.minimize(loss)
+
+#PT - convertendo os resultados quebrados em exatos EN - Making all results integers
+correct_pred = tf.equal(tf.argmax(one_hot, 1), tf.argmax(logits, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
