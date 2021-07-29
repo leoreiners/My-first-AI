@@ -47,3 +47,16 @@ one_hot = tf.one_hot(y_place, 2)
 
 #PT - transformando os arrays em tensors En - converting arrays to tensors
 input_layer = tf.reshape(x_place, shape = [-1, 200, 200, 3])
+
+#PT - criando os processos de aprendizado da rede neural EN - creating the learning process of the NN
+flatten = tf.reshape(input_layer, [-1, (200*200*3)])
+fc1 = tf.layers.dense(flatten, units=200, activation=tf.nn.relu)
+fc2 = tf.layers.dense(fc1, units=200, activation=tf.nn.relu)
+fc3 = tf.layers.dense(fc2, units=200, activation=tf.nn.relu)
+dropout = tf.layers.dropout(fc3, rate=0.2)
+logits = tf.layers.dense(dropout, units=2)
+
+#Pt - criando o loss e a velocidade de aprendizado com o loss EN - Creating loss anda learning speed with loss
+loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot))
+optimiser = tf.train.AdamOptimizer()
+training_op = optimiser.minimize(loss)
