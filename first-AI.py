@@ -29,3 +29,11 @@ def create_data(folder, name):
 
 create_data(gnome_folder, 'gnome')
 create_data(drone_folder, 'drone')
+
+#plot (opcional|optional)
+    #plt.imshow(X[0])
+    #plt.show()
+    #print(X[0])
+
+#PT - separando os dados entre treino e avaliação EN - Separating data between train and test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
