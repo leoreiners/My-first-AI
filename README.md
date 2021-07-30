@@ -7,5 +7,5 @@ tenha uma taxa de acerto bem alta em diferenciar dois grupos de imagens.
 
 EN
 
-A project I made for a college work, I used python was with some libraries, the main one being TensorFlow, and the idea is to create an AI that in a few generations of learning
+A project I made for a college work, I used python with some libraries, the main one being TensorFlow, and the idea is to create an AI that in a few generations of learning
 will have a very high accuracy in differentiating two groups of images.
